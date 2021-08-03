@@ -7,15 +7,16 @@ body{
   display: flex;
   flex-direction: column;
 }
-
+h1{
+  text-align:center;
+  margin: 2rem;
+}
 
 section {
   display: flex;
   flex-wrap: wrap;
   width:840px;
-}
-section:nth-child(0){
-  flex-shrink: 3;
+  margin: 0 auto;
 }
 .block {
   height: 40px;
