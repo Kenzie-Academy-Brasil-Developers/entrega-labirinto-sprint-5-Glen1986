@@ -29,20 +29,32 @@ const tela = () =>{
    for(let i = 0; i < map.length; i++){
         for(let j = 0; j < map[i].length; j++){
             
-            if(map[i][j] == "W"){
-              //  console.log(map[i])
+            if(map[i][j] === "W"){
                 const block = document.createElement("div");
                 block.classList.add("block");
                section.appendChild(block);
-            }else if(map[i][j] !== "W"){
+            }
+            if(map[i][j] === "S"){
+                const way = document.createElement("div");
+                way.classList.add("use")
+            }
+            if(map[i][j] !== "W"){
                 const way = document.createElement("div");
                 way.classList.add("way");
                 section.appendChild(way);
             }
+            
+
         }
     }
     return mapDiv;
 
 }
 tela();
- 
+const play = () => {
+  const player = document.createElement("div");
+    const destiny = document.getElementsByTagName("section");
+    //player.appendChild(section)
+    player.classList.add("use")
+}
+play();
