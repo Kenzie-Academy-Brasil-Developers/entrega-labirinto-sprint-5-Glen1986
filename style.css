@@ -15,20 +15,44 @@ h1{
 section {
   display: flex;
   flex-wrap: wrap;
-  width:840px;
+  width:42rem;
   margin: 0 auto;
 }
 .block {
-  height: 40px;
-  width:40px;
+  height: 2rem;
+  width: 2rem;
   background-color: blue;
-  border: 2px solid red;
 }
 .way {
-  height: 40px;
-  width: 40px;
+  height: 2rem;
+  width: 2rem;
   background-color: white;
-  border: 2px dashed blue;
+}
+.use{
+  height: 2rem;
+  width: 2rem;
+  background-color: green;
+  border: 1px dashed yellow;
+}
+@media screen and (max-width: 780px){
+  section {
+  width:21rem;
+}
+.block {
+  height: 1rem;
+  width: 1rem;
+}
+.way {
+  height: 1rem;
+  width: 1rem;
+}
+.use{
+  height: 1rem;
+  width: 1rem;
+}
+  body{
+    background-color: aquamarine;
+  }
 }
 @keyframes slideRight {
   from {
