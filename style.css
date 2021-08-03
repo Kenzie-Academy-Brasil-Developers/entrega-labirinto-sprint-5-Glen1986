@@ -1,0 +1,43 @@
+html,body,div,h1,h2,p,span{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  flex-direction: column;
+}
+h1{
+  text-align:center;
+  margin: 2rem;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  width:840px;
+  margin: 0 auto;
+}
+.block {
+  height: 40px;
+  width:40px;
+  background-color: blue;
+  border: 2px solid red;
+}
+.way {
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border: 2px dashed blue;
+}
+@keyframes slideRight {
+  from {
+    margin-left: -33px;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+.slideRight {
+  animation-name: slideRight;
+}
