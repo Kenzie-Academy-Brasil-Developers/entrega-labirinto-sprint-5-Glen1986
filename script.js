@@ -2,7 +2,6 @@ const body = document.getElementById("body");
 const section = document.createElement("section");
 const mapDiv = document.createElement("div");
 body.appendChild(section);
-section.appendChild(mapDiv);
 
 const map = [
     "WWWWWWWWWWWWWWWWWWWWW",
@@ -51,10 +50,60 @@ const tela = () =>{
 
 }
 tela();
-const play = () => {
-  const player = document.createElement("div");
-    const destiny = document.getElementsByTagName("section");
-    //player.appendChild(section)
-    player.classList.add("use")
+const jugar = () => {
+
+ const player = document.createElement("div");
+    section.appendChild(player);
+    player.classList.add("use");
+    player.id = "player";
+
+    let boxTop = -6;
+    let boxLeft = 0;
+        
+    const suma = () => {
+      boxTop -= 1;
+      return boxTop;
+    };
+    const resta = () => {
+      boxTop += 1;
+      return boxTop;
+    };
+    const left = () => {
+      boxLeft -= 1;
+      return boxLeft;
+    };
+    const right = () => {
+      boxLeft += 1;
+      return boxLeft;
+    };
+
+/*  const show = () =>{
+  const text = document.createElement("p");
+  text.innerText = "Play"
+  return body.appendChild(text)
+  };
+  */
+   
+    const gamer = document.getElementById("player");
+
+    const key = document.addEventListener("keydown", (event) => {
+      let keyName = event.key;
+      if (keyName == "ArrowUp") {
+        suma();
+      }
+      if (keyName == "ArrowDown") {
+        resta();
+      }
+      if (keyName == "ArrowLeft") {
+        left();
+      }
+      if (keyName == "ArrowRight") {
+        right();
+      }
+
+      player.style.top = boxTop + "rem";
+      player.style.left = boxLeft + "rem";
+      console.log("key: " + keyName);
+    });
 }
-play();
+jugar();
