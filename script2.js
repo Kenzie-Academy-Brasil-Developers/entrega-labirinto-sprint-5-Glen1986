@@ -25,25 +25,19 @@ const map = [
 
 const tela = () =>{
 
-
    for(let i = 0; i < map.length; i++){
         for(let j = 0; j < map[i].length; j++){
             
             if(map[i][j] === "W"){
                 const block = document.createElement("div");
                 block.classList.add("block");
-               
                 section.appendChild(block);
             }
-            if(map[i][j] === "S"){
-                const way = document.createElement("div");
-                way.classList.add("use")
-            }
-            if(map[i][j] !== "W"){
-                const way = document.createElement("div");
-                way.classList.add("way");
-                way.id= "way";
-                section.appendChild(way);
+           if(map[i][j] !== "W"){
+                const block = document.createElement("div");
+                block.classList.add("way");
+                block.id= "way";
+                section.appendChild(block);
             }
             
         }
@@ -52,56 +46,78 @@ const tela = () =>{
 }
 tela();
 
-const jugar =()=>{
-
-const mapa =()=>{
-    let final =[];
-    for (let i = 0; i <  map.length; i++){
-        final[i] = [];
-        for (let j = 0; j < map[i].length; j++){
-            if(map[i][j] == "W"){
-            final[i][j] = 1;
-            }
-            if(map[i][j] !="W"){
-            final[i][j] = 0; 
-            }
-        }
-    }
-//    console.table(final)
-}
-mapa();
-
  const player = document.createElement("div");
   const way = document.getElementById("way")
-    way.appendChild(player);
+/*
+    let final
+    const paredes =()=>{
+      final = []
+       for(let i = 0; i < map.length; i++){
+          final[i]=[];
+         for(let j = 0; j < map[i].length; j++){
+                if(map[i][j] === "W"){
+                    final[i][j] = 0
+                }
+               if(map[i][j] !== "W"){
+                  final[i][j] = 1
+                }
+                
+            }
+        }
+//      console.table(final)
+      return final
+    }
+//paredes();
+*/
+    section.appendChild(player);
     player.classList.add("use");
     player.id = "player";
-    let boxTop = 8;
+    let boxTop = -6;
     let boxLeft = 0;
     const key = document.addEventListener("keydown", (event) => {
+
+    let final = []
+       for(let i = 0; i < map.length; i++){
+          final[i]=[];
+         for(let j = 0; j < map[i].length; j++){
+                if(map[i][j] === "W"){
+                    final[i][j] = 0
+                }
+               if(map[i][j] !== "W"){
+                  final[i][j] = 1
+                }
+                
+            }
+        }
+
       let keyName = event.key;
-      if ( keyName == "ArrowUp" && boxTop > -1 ) {
-          console.log(player.parentNode)
+      if ( keyName == "ArrowUp" && boxTop > -15 ) {
+     //   if(map[boxLeft][boxTop+6] !== "W"){
+  //        console.log(map[boxLeft][boxTop+6] )
         boxTop -= 1;
+    //    }
+     //     console.log(...[...final])
+     //     console.log(player.style.top)
       }
-      if (keyName == "ArrowDown" && boxTop < 13) {
-          console.log(player.parentNode)
+      if (keyName == "ArrowDown" && boxTop < -1) {
+     //     console.log(player.style.top)
+    //      console.log(map[boxLeft][boxTop+6] )
         boxTop += 1;
       }
-      if (keyName == "ArrowLeft" && boxLeft > -1) {
-          console.log(player.parentNode)
+      if (keyName == "ArrowLeft" && boxLeft > 0) {
+     //     console.log(player.style.left)
+ //         console.log(map[boxLeft][boxTop+6] )
         boxLeft -= 1;
       }
-      if (keyName == "ArrowRight" && boxLeft < 19) {
-          console.log(player.parentNode)
+      if (keyName == "ArrowRight" && boxLeft < 20) {
+     //     console.log(player.style.left)
         boxLeft += 1;
       }
 
       player.style.top = boxTop + "rem";
       player.style.left = boxLeft + "rem";
-     //   console.log(player.style.left)
+        console.log(player.style.left, player.style.top)
      //   console.log(player.parentNode)
  
+          console.log(map[boxTop + 15][boxLeft ] )
     })
-    }
-jugar();
