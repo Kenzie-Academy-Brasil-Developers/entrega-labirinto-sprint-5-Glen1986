@@ -1,7 +1,9 @@
+
 const body = document.getElementById("body");
 const section = document.createElement("section");
-const mapDiv = document.createElement("div");
+const mapDiv = document.createElement("array");
 body.appendChild(section);
+section.appendChild(mapDiv);
 
 const map = [
     "WWWWWWWWWWWWWWWWWWWWW",
@@ -21,7 +23,6 @@ const map = [
     "WWWWWWWWWWWWWWWWWWWWW",
 ];
 
-
 const tela = () =>{
 
 
@@ -31,7 +32,8 @@ const tela = () =>{
             if(map[i][j] === "W"){
                 const block = document.createElement("div");
                 block.classList.add("block");
-               section.appendChild(block);
+               
+                section.appendChild(block);
             }
             if(map[i][j] === "S"){
                 const way = document.createElement("div");
@@ -44,80 +46,62 @@ const tela = () =>{
                 section.appendChild(way);
             }
             
-
         }
     }
 
 }
 tela();
-const jugar = () => {
+
+const jugar =()=>{
+
+const mapa =()=>{
+    let final =[];
+    for (let i = 0; i <  map.length; i++){
+        final[i] = [];
+        for (let j = 0; j < map[i].length; j++){
+            if(map[i][j] == "W"){
+            final[i][j] = 1;
+            }
+            if(map[i][j] !="W"){
+            final[i][j] = 0; 
+            }
+        }
+    }
+//    console.table(final)
+}
+mapa();
 
  const player = document.createElement("div");
   const way = document.getElementById("way")
     way.appendChild(player);
     player.classList.add("use");
     player.id = "player";
-
-      let camino = [];
-      for (let i = 0; i < section.length; i++){
-        camino[i]=[];
-        for (let j = 0; j < section[i].length;j++){
-          camino[i].push(...section[i])
-          console.log(camino[i][j])
-        }
-      }
-    let boxTop = -6;
+    let boxTop = 8;
     let boxLeft = 0;
-        
-    const suma = () => {
-      boxTop -= 1;
-      return boxTop;
-    };
-    const resta = () => {
-      boxTop += 1;
-      return boxTop;
-    };
-    const left = () => {
-      boxLeft -= 1;
-      return boxLeft;
-    };
-    const right = () => {
-      boxLeft += 1;
-      return boxLeft;
-    };
-
-/*  const show = () =>{
-  const text = document.createElement("p");
-  text.innerText = "Play"
-  return body.appendChild(text)
-  };
-  */
-   
-    const gamer = document.getElementById("player");
-    const text = document.createElement("p");
-    body.appendChild(text)
-
     const key = document.addEventListener("keydown", (event) => {
       let keyName = event.key;
+      if ( keyName == "ArrowUp" && boxTop > -1 ) {
+          console.log(player.parentNode)
+        boxTop -= 1;
+      }
+      if (keyName == "ArrowDown" && boxTop < 13) {
+          console.log(player.parentNode)
+        boxTop += 1;
+      }
+      if (keyName == "ArrowLeft" && boxLeft > -1) {
+          console.log(player.parentNode)
+        boxLeft -= 1;
+      }
+      if (keyName == "ArrowRight" && boxLeft < 19) {
+          console.log(player.parentNode)
+        boxLeft += 1;
+      }
 
-      if (keyName == "ArrowUp") {
-        suma();
-      }
-      if (keyName == "ArrowDown") {
-        resta();
-      }
-      if (keyName == "ArrowLeft") {
-        left();
-      }
-      if (keyName == "ArrowRight") {
-        right();
-      }
-
-      let cuenta = `${player.style.top} ${player.style.left}`
-      text.innerText = cuenta
       player.style.top = boxTop + "rem";
       player.style.left = boxLeft + "rem";
-     // console.log("key: " + keyName);
-    });
-}
+     //   console.log(player.style.left)
+     //   console.log(player.parentNode)
+ 
+    })
+    }
 jugar();
