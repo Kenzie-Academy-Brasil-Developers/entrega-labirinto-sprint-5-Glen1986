@@ -48,27 +48,7 @@ tela();
 
  const player = document.createElement("div");
   const way = document.getElementById("way")
-/*
-    let final
-    const paredes =()=>{
-      final = []
-       for(let i = 0; i < map.length; i++){
-          final[i]=[];
-         for(let j = 0; j < map[i].length; j++){
-                if(map[i][j] === "W"){
-                    final[i][j] = 0
-                }
-               if(map[i][j] !== "W"){
-                  final[i][j] = 1
-                }
-                
-            }
-        }
-//      console.table(final)
-      return final
-    }
-//paredes();
-*/
+
     section.appendChild(player);
     player.classList.add("use");
     player.id = "player";
@@ -89,31 +69,43 @@ tela();
                 
             }
         }
+      let itemBlock = map[boxTop + 15][boxLeft ] 
 
       let keyName = event.key;
       if ( keyName == "ArrowUp" && boxTop > -15 ) {
-     //   if(map[boxLeft][boxTop+6] !== "W"){
-  //        console.log(map[boxLeft][boxTop+6] )
-        boxTop -= 1;
-    //    }
-     //     console.log(...[...final])
-     //     console.log(player.style.top)
+          if(itemBlock == "W"){
+        alert("de Novo");
+          }else{
+            boxTop -=1;
+          }
       }
       if (keyName == "ArrowDown" && boxTop < -1) {
-     //     console.log(player.style.top)
-    //      console.log(map[boxLeft][boxTop+6] )
-        boxTop += 1;
-      }
-      if (keyName == "ArrowLeft" && boxLeft > 0) {
-     //     console.log(player.style.left)
- //         console.log(map[boxLeft][boxTop+6] )
-        boxLeft -= 1;
-      }
-      if (keyName == "ArrowRight" && boxLeft < 20) {
-     //     console.log(player.style.left)
-        boxLeft += 1;
+        if(itemBlock === "W"){
+          console.log(itemBlock)
+        alert("de Novo");
+         }else{
+           boxTop += 1;
+         }
       }
 
+      if (keyName == "ArrowLeft" && boxLeft > 0) {
+        if(itemBlock === "W"){
+        alert("de Novo");
+        }else{
+        boxLeft -= 1;
+        }
+      }
+      if (keyName == "ArrowRight" && boxLeft < 20) {
+        if(itemBlock === "W"){
+        alert("de Novo");
+        }else{
+        boxLeft += 1;
+        }
+
+      }
+        if(itemBlock == "F"){
+          alert("youWin")
+        }
       player.style.top = boxTop + "rem";
       player.style.left = boxLeft + "rem";
         console.log(player.style.left, player.style.top)
