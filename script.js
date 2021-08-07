@@ -2,6 +2,7 @@
 const body = document.getElementById("body");
 const section = document.createElement("section");
 const mapDiv = document.createElement("array");
+const media = document.createElement('audio');
 body.appendChild(section);
 section.appendChild(mapDiv);
 
@@ -76,43 +77,53 @@ tela();
 
       let keyName = event.key;
       if ( keyName == "ArrowUp" && boxTop > -15 ) {
-          if(itemBlock == "W"){
-        alert("de Novo");
+        if(map[boxTop + 14][boxLeft ] ==="W"){
           }else{
+            body.appendChild(media)
+            media.src="./media/Cartoon Metal Thunk.mp3"
+            media.currentTime =1.8,2.2;
+            media.play();
             boxTop -=1;
           }
       }
       if (keyName == "ArrowDown" && boxTop < -1) {
-        if(itemBlock === "W"){
-          console.log(itemBlock)
-        alert("de Novo");
+        if(map[boxTop + 16][boxLeft ] ==="W"){
          }else{
-           boxTop += 1;
+          body.appendChild(media)
+          media.src="./media/Cartoon Metal Thunk.mp3"
+          media.currentTime =1.8,2.2;
+          media.play();
+          boxTop += 1;
          }
       }
 
       if (keyName == "ArrowLeft" && boxLeft > 0) {
-        if(itemBlock === "W"){
-        alert("de Novo");
+        if(map[boxTop + 15][boxLeft -1 ] ==="W"){
         }else{
-        boxLeft -= 1;
+          body.appendChild(media)
+          media.src="./media/Cartoon Metal Thunk.mp3"
+          media.currentTime =1.8,2.2;
+          media.play();
+          boxLeft -= 1;
         }
       }
       if (keyName == "ArrowRight" && boxLeft < 20) {
-        if(itemBlock === "W"){
-        alert("de Novo");
+        if(map[boxTop + 15][boxLeft +1 ] ==="W"){
         }else{
-        boxLeft += 1;
+          body.appendChild(media)
+          media.src="./media/Cartoon Metal Thunk.mp3"
+          media.currentTime =1.8;
+          media.play();
+          boxLeft += 1;
         }
 
       }
         if(itemBlock == "F"){
-          alert("youWin")
+    media.src="./media/Cumbia City - An Jone.mp3"
+    media.currentTime =1.8,2.2;
+    media.play();
+        alert("youWin")
         }
       player.style.top = boxTop + "rem";
       player.style.left = boxLeft + "rem";
-        console.log(player.style.left, player.style.top)
-     //   console.log(player.parentNode)
- 
-          console.log(map[boxTop + 15][boxLeft ] )
     })
