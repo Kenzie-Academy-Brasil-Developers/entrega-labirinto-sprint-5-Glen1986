@@ -9,6 +9,7 @@ body{
   flex-direction: column;
   font-family: 'Palette Mosaic', cursive;
   font-weight: 100;
+  text-align:center;
 }
 h1{
   text-align:center;
@@ -42,8 +43,22 @@ section {
   background-color: green;
   position: relative;
 }
-@media screen and (max-width: 780px){
-  section {
+navbar{
+  align-items:space-around;
+}
+navbar button{
+  height: 4rem;
+  width: 4rem;
+  margin:0.4rem;
+  background-color: yellow;
+  border:1px solid blue;
+  border-radius:25%;
+}
+@media screen and (min-width: 780px){
+  navbar{
+    display: none;
+  }
+  section {  
   width:21rem;
 }
 .block {
