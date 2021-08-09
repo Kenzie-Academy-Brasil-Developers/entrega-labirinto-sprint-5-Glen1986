@@ -54,7 +54,7 @@ navbar button{
   border:1px solid blue;
   border-radius:25%;
 }
-@media screen and (min-width: 780px){
+@media screen and (min-width: 860px){
   navbar{
     display: none;
   }
