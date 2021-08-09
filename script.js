@@ -205,4 +205,31 @@ const click = document.addEventListener("click", (event)=>{
     player.style.top = boxTop + "rem";
     player.style.left = boxLeft + "rem";
 })
+const touch = document.addEventListener("touch", (event) =>{
+    mensaje.classList.add('none');
+    position();
+    let itemBlock = map[boxTop + 15][boxLeft ] 
+    let keyName = event.originalTarget.className;
+  if(keyName == "button1"){
+    left();
+  }
+  if(keyName == "button2"){
+    up();
+  }
+  if(keyName == "button3"){
+    down();
+  }
+  if(keyName == "button4"){
+    right();
+  }
+  if(itemBlock == "F"){
+    media.src="./media/Cumbia City - An Jone.mp3"
+    media.currentTime =1.8,2.2;
+    media.play();
+    alert("youWin")
+    }
 
+    console.log(keyName)
+    player.style.top = boxTop + "rem";
+    player.style.left = boxLeft + "rem"; 
+})
