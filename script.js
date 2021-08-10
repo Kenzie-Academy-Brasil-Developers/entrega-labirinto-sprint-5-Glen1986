@@ -7,8 +7,9 @@ body.appendChild(section);
 section.appendChild(mapDiv);
 
 const left = () =>{
- if(map[boxTop + 15][boxLeft -1 ] ==="W"){
-        }else{
+  if(map[boxTop + 15][boxLeft -1 ] ==="W" ){
+   console.log(boxLeft)
+  }else if( boxLeft > 0 ){
           body.appendChild(media)
           media.src="./media/Cartoon Metal Thunk.mp3"
           media.currentTime =1.8,2.2;
@@ -18,7 +19,7 @@ const left = () =>{
 }
 const right = () =>{
   if(map[boxTop + 15][boxLeft +1 ] ==="W"){
-        }else{
+        }else if(boxLeft < 20){
           body.appendChild(media)
           media.src="./media/Cartoon Metal Thunk.mp3"
           media.currentTime =1.8;
@@ -133,7 +134,7 @@ const key = document.addEventListener("keydown", (event) => {
   if(keyName == "ArrowLeft"){
     left();
   }
-  if(keyName== "ArrowRight"){
+  if(keyName == "ArrowRight"){
     right();
   }
     if(itemBlock == "F"){
@@ -181,7 +182,7 @@ const click = document.addEventListener("click", (event)=>{
     mensaje.classList.add('none');
     position();
     let itemBlock = map[boxTop + 15][boxLeft ] 
-    let keyName = event.originalTarget.className;
+    let keyName = event.originalTarget;
   if(keyName == "button1"){
     left();
   }
@@ -205,7 +206,7 @@ const click = document.addEventListener("click", (event)=>{
     player.style.top = boxTop + "rem";
     player.style.left = boxLeft + "rem";
 })
-const touch = document.addEventListener("touch", (event) =>{
+const touch = document.addEventListener("touchend", (event) =>{
     mensaje.classList.add('none');
     position();
     let itemBlock = map[boxTop + 15][boxLeft ] 
